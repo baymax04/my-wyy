@@ -1,0 +1,17 @@
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'playCount'
+})
+export class PlayCountPipe implements PipeTransform {
+
+  // 如果播放量大于一万，会显示 xx万;否则原样显示
+  transform(value: number): number | string {
+    if (value > 10000) {
+      return Math.floor(value / 10000) + '万';
+    } else {
+      return value;
+    }
+  }
+
+}
